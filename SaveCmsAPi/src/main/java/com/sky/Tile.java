@@ -4,22 +4,17 @@ import java.util.Date;
 
 public class Tile implements Comparable<Tile> {
 	
-	private String label;
+	private Label label;
 	private Position position;
 	private Date scheduleDate;
 	
-	public Tile(String label, Position position, Date scheduleDate) {
+	public Tile(Label label, Position position, Date scheduleDate) {
 		
 		this.label = label;
 		this.position = position;
 		this.scheduleDate = scheduleDate;
 	}
-	public String getLabel() {
-		return label;
-	}
-	public void setLabel(String label) {
-		this.label = label;
-	}
+
 	public Position getPosition() {
 		return position;
 	}
@@ -50,6 +45,14 @@ public class Tile implements Comparable<Tile> {
 		if(this.equals(o)) return 0;
 		if(this.scheduleDate.before(o.scheduleDate)) return -1;
 		else return 1;
+	}
+
+	public Label getLabel() {
+		return label;
+	}
+
+	public void setLabel(Label label) {
+		this.label = label;
 	}
 
 }

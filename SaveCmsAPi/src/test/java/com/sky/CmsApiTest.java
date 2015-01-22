@@ -20,7 +20,7 @@ public class CmsApiTest {
 
 		ClientSchedule schedule = createScheduleTestData();
 		Date scheduledDateOfNewTile = new Date();
-		Tile tileToAdd = createTile(TILE_LABEL_2,createPosition(2,3), scheduledDateOfNewTile);
+		Tile tileToAdd = createTile(createLabel(TILE_LABEL_2),createPosition(2,3), scheduledDateOfNewTile);
 		assertTrue(new CmsApi().checkTileExistForGivenDateAndPosition(tileToAdd,schedule));
 	}
 
@@ -30,7 +30,7 @@ public class CmsApiTest {
 
 		ClientSchedule schedule = createScheduleTestData();
 		Date scheduledDateOfNewTile = createDate(2015, 1, 20, 5, 33, DateTimeZone.getDefault());
-		Tile tileToAdd = createTile(TILE_LABEL_2,createPosition(2,3), scheduledDateOfNewTile);
+		Tile tileToAdd = createTile(createLabel(TILE_LABEL_2),createPosition(2,3), scheduledDateOfNewTile);
 		assertFalse(new CmsApi().checkTileExistForGivenDateAndPosition(tileToAdd,schedule));
 	}
 
@@ -45,7 +45,7 @@ public class CmsApiTest {
 		schedule.getTiles().add(tile);
 	}
 
-	private Tile createTile(String tileLabel, Position position, Date date) {
+	private Tile createTile(Label tileLabel, Position position, Date date) {
 
 		return new Tile(tileLabel,position,date);
 	}
@@ -58,8 +58,13 @@ public class CmsApiTest {
 	private ClientSchedule createScheduleTestData() {
 
 		ClientSchedule schedule = new ClientSchedule();
-		Tile tile = createTile(TILE_LABEL_1,createPosition(2,3), new Date());
+		Tile tile = createTile(createLabel(TILE_LABEL_1),createPosition(2,3), new Date());
 		addTileToSchedule(schedule,tile);
 		return schedule;
+	}
+
+	private Label createLabel(String tileLabel2) {
+
+		return new Label(tileLabel2);
 	}
 }
