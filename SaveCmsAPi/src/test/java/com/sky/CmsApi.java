@@ -2,11 +2,11 @@ package com.sky;
 
 public class CmsApi {
 
-	public boolean checkTileExistForGivenDateAndPosition(Tile tile,
-			ClientSchedule schedule) {
+	public boolean checkTileExistForGivenDateAndPosition(TileSchedule tileSchedule,
+			ClientSchedule clientSchedule) {
 		
-		if(schedule.getTiles().contains(tile)) return true;
+		if(clientSchedule.getClientTileSchedules().contains(tileSchedule)) 
+			return true;
 		return false;
 	}
-
 }

@@ -5,15 +5,14 @@ import java.util.TreeSet;
 
 public class ClientSchedule {
 	
-	private Set<Tile> tiles = new TreeSet<Tile>();
+	private Set<TileSchedule> clientTileSchedules = new TreeSet<TileSchedule>();
 
-	public Set<Tile> getTiles() {
-		return tiles;
+	public Set<TileSchedule> getClientTileSchedules() {
+		return clientTileSchedules;
 	}
 
-	public void setTiles(Set<Tile> tiles) {
-		this.tiles = tiles;
+	public void setClientTileSchedules(Set<TileSchedule> clientTileSchedules) {
+		this.clientTileSchedules = clientTileSchedules;
 	}
-
 
 }
