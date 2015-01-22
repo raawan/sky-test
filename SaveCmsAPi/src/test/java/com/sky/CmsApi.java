@@ -5,7 +5,7 @@ public class CmsApi {
 	public boolean checkTileExistForGivenDateAndPosition(Tile tile,
 			ClientSchedule schedule) {
 		
-		return false;
+		return true;
 	}
 
 }
