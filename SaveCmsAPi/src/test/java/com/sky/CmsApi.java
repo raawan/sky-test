@@ -5,7 +5,8 @@ public class CmsApi {
 	public boolean checkTileExistForGivenDateAndPosition(Tile tile,
 			ClientSchedule schedule) {
 		
-		return true;
+		if(schedule.getTiles().contains(tile)) return true;
+		return false;
 	}
 
 }

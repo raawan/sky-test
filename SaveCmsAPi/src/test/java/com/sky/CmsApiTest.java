@@ -17,19 +17,21 @@ public class CmsApiTest {
 	public void GIVEN_inputTilePositionAndTimeCollidesWithSomeOtherExstingTileInSchedule_THEN_returnTrue() {
 		
 		ClientSchedule schedule = new ClientSchedule();
-		Tile tile = new Tile("tileLabel",new Position(2,3), new Date());
+		Tile tile = new Tile("tileLabel1",new Position(2,3), new Date());
 		schedule.getTiles().add(tile);
-		assertTrue(new CmsApi().checkTileExistForGivenDateAndPosition(tile,schedule));
+		Date scheduledDateOfNewTile = new Date();
+		Tile tileToAdd = new Tile("tileLabel2",new Position(2,3), scheduledDateOfNewTile);
+		assertTrue(new CmsApi().checkTileExistForGivenDateAndPosition(tileToAdd,schedule));
 	}
 	
 	@Test
 	public void GIVEN_inputTilePositionAndTimeDoNotCollidesWithSomeOtherExstingTilesInSchedule_THEN_returnFalse() {
 		
 		ClientSchedule schedule = new ClientSchedule();
-		Tile tile = new Tile("tileLabel",new Position(2,3), new Date());
+		Tile tile = new Tile("tileLabel1",new Position(2,3), new Date());
 		schedule.getTiles().add(tile);
 		Date scheduledDateOfNewTile = createDate(2015, 1, 20, 5, 33, DateTimeZone.getDefault());
-		Tile tileToAdd = new Tile("tileLabel",new Position(2,3), scheduledDateOfNewTile);
+		Tile tileToAdd = new Tile("tileLabel2",new Position(2,3), scheduledDateOfNewTile);
 		assertFalse(new CmsApi().checkTileExistForGivenDateAndPosition(tileToAdd,schedule));
 	}
 	
