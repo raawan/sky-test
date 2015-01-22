@@ -1,17 +1,19 @@
 package com.sky;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 public class ClientSchedule {
 	
-	private TreeSet<Tile> schedules;
+	private Set<Tile> tiles = new TreeSet<Tile>();
 
-	public TreeSet<Tile> getSchedules() {
-		return schedules;
+	public Set<Tile> getTiles() {
+		return tiles;
 	}
 
-	public void setSchedules(TreeSet<Tile> schedules) {
-		this.schedules = schedules;
+	public void setTiles(Set<Tile> tiles) {
+		this.tiles = tiles;
 	}
+
 
 }

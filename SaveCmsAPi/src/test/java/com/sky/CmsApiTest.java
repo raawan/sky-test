@@ -13,7 +13,7 @@ public class CmsApiTest {
 	@Test
 	public void GIVEN_inputTilePositionAndTimeCollidesWithSomeOtherExstingTileInSchedule_THEN_returnTrue() {
 		
-		Schedule schedule = new Schedule();
+		ClientSchedule schedule = new ClientSchedule();
 		Tile tile = new Tile("tileLabel",new Position(2,3), new Date());
 		schedule.getTiles().add(tile);
 		assertTrue(new CmsApi().checkTileExistForGivenDateAndPosition(tile,schedule));
