@@ -3,7 +3,6 @@ package com.sky;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
-import java.util.Iterator;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -61,12 +60,67 @@ public class ClientScheduleTest {
 		assertEquals(tileSchedule3,clientSchedule.getClientTileSchedules().last());
 		assertEquals(tileSchedule1,clientSchedule.getClientTileSchedules().higher(tileSchedule4));
 		
-		Iterator<TileSchedule> itr = clientSchedule.getClientTileSchedules().iterator();
-		TileSchedule tmp = null;
-		while(itr.hasNext()) {
-			tmp = itr.next();
-			System.out.println(tmp.getTile().getLabel().getLabel() + ":" +tmp.getStartDate());
-		}
+	}
+	
+	@Test
+	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_1() {
+		
+		ClientSchedule clientSchedule = new ClientSchedule();
+		
+		Tile tile1 = createTile(createLabel("label1"), createPosition(1, 1));
+		Date startDate1 = createDate(2015,1,2,13,40,getDefaultTimeZone());
+		TileSchedule tileSchedule1 = createTileSchedule(tile1, startDate1);
+		
+		Tile tile2 = createTile(createLabel("label2"), createPosition(1, 2));
+		TileSchedule tileSchedule2 = createTileSchedule(tile2, startDate1);
+		
+		addTileToSchedule(clientSchedule,tileSchedule1);
+		addTileToSchedule(clientSchedule,tileSchedule2);
+		
+		assertEquals(tileSchedule1,clientSchedule.getClientTileSchedules().first());
+		assertEquals(tileSchedule2,clientSchedule.getClientTileSchedules().last());
+	}
+	
+	@Test
+	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_2() {
+		
+		ClientSchedule clientSchedule = new ClientSchedule();
+		
+		Tile tile1 = createTile(createLabel("label1"), createPosition(2, 1));
+		Date startDate1 = createDate(2015,1,2,13,40,getDefaultTimeZone());
+		TileSchedule tileSchedule1 = createTileSchedule(tile1, startDate1);
+		
+		Tile tile2 = createTile(createLabel("label2"), createPosition(1, 3));
+		TileSchedule tileSchedule2 = createTileSchedule(tile2, startDate1);
+		
+		addTileToSchedule(clientSchedule,tileSchedule1);
+		addTileToSchedule(clientSchedule,tileSchedule2);
+		
+		assertEquals(tileSchedule2,clientSchedule.getClientTileSchedules().first());
+		assertEquals(tileSchedule1,clientSchedule.getClientTileSchedules().last());
+	}
+	
+	@Test
+	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_3() {
+		
+		ClientSchedule clientSchedule = new ClientSchedule();
+		
+		Tile tile1 = createTile(createLabel("label1"), createPosition(2, 1));
+		Date startDate1 = createDate(2015,1,2,13,40,getDefaultTimeZone());
+		TileSchedule tileSchedule1 = createTileSchedule(tile1, startDate1);
+		
+		Tile tile2 = createTile(createLabel("label2"), createPosition(2, 3));
+		TileSchedule tileSchedule2 = createTileSchedule(tile2, startDate1);
+		
+		Tile tile3 = createTile(createLabel("label3"), createPosition(1, 3));
+		TileSchedule tileSchedule3 = createTileSchedule(tile3, startDate1);
+		
+		addTileToSchedule(clientSchedule,tileSchedule1);
+		addTileToSchedule(clientSchedule,tileSchedule2);
+		addTileToSchedule(clientSchedule,tileSchedule3);
+		
+		assertEquals(tileSchedule3,clientSchedule.getClientTileSchedules().first());
+		assertEquals(tileSchedule2,clientSchedule.getClientTileSchedules().last());
 	}
 	
 	private DateTimeZone getDefaultTimeZone() {
