@@ -9,4 +9,12 @@ public class CmsApi {
 			return true;
 		return false;
 	}
+
+	public boolean checkATileExistBeforeGivenNewTileSchedule(
+			TileSchedule tileSchedule2, ClientSchedule clientSchedule) {
+
+		return false;
+	}
+	
+	
 }
