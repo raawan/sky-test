@@ -38,6 +38,17 @@ public class CmsApiTest {
 		assertFalse(new CmsApi().checkTileExistForGivenDateAndPosition(tileSchedule2,clientSchedule));
 	}
 
+	@Test
+	public void GIVEN_inputTilePositionAndTimeDoNotCollidesWithSomeOtherExstingTilesInSchedule_THEN_returnFalse_2() {
+
+		ClientSchedule clientSchedule = createScheduleTestData();
+		Date scheduledDateOfNewTile = createDateWithDefaultTimeZone(2015, 1, 20, 3, 30);
+		Tile tileToAdd = createTile(createLabel(TILE_LABEL_2),createPosition(2,4));
+		TileSchedule tileSchedule2 = createTileSchedule(tileToAdd,scheduledDateOfNewTile);
+		assertEquals(1,clientSchedule.getClientTileSchedules().size());
+		assertFalse(new CmsApi().checkTileExistForGivenDateAndPosition(tileSchedule2,clientSchedule));
+	}
+	
 	private ClientSchedule createScheduleTestData() {
 
 		ClientSchedule schedule = new ClientSchedule();
