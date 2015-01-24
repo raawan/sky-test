@@ -50,7 +50,7 @@ public class CmsApiTest {
 	}
 	
 	@Test
-	public void GIVEN_aTileExistInClientScheduleBeforeTheGivenNewTileSchedule_THEN_returnTre() {
+	public void GIVEN_aTileExistInClientScheduleBeforeTheGivenNewTileSchedule_THEN_returnTrue() {
 		
 		ClientSchedule clientSchedule = createScheduleTestData();
 		

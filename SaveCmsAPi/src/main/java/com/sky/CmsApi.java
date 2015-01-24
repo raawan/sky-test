@@ -1,5 +1,7 @@
 package com.sky;
 
+import java.util.TreeSet;
+
 public class CmsApi {
 
 	public boolean checkTileExistForGivenDateAndPosition(TileSchedule tileSchedule,
@@ -12,8 +14,15 @@ public class CmsApi {
 
 	public boolean checkATileExistBeforeGivenNewTileSchedule(
 			TileSchedule tileSchedule2, ClientSchedule clientSchedule) {
-
-		return false;
+		
+		TreeSet<TileSchedule> clientTileSchedules = clientSchedule.getClientTileSchedules();
+		if (clientTileSchedules.size()==0) return false;
+		else {
+			clientTileSchedules.add(tileSchedule2);
+			if(clientTileSchedules.headSet(tileSchedule2).size()>0) return true;
+			return false;
+			
+		}
 	}
 	
 	
