@@ -4,9 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.junit.Test;
+import static com.sky.Util.*;
 
 public class ClientScheduleTest {
 	
@@ -123,39 +122,4 @@ public class ClientScheduleTest {
 		assertEquals(tileSchedule2,clientSchedule.getClientTileSchedules().last());
 	}
 	
-	private DateTimeZone getDefaultTimeZone() {
-
-		return DateTimeZone.getDefault();
-	}
-
-	private Date createDate(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, DateTimeZone zone) {
-
-		DateTime dt = new DateTime(year,monthOfYear,dayOfMonth,hourOfDay,minuteOfHour,zone);
-		return dt.toDate();
-	}
-	
-	private void addTileToSchedule(ClientSchedule clientSchedule, TileSchedule tileSchedule) {
-
-		clientSchedule.getClientTileSchedules().add(tileSchedule);
-	}
-	
-	private TileSchedule createTileSchedule(Tile tile, Date startDate) {
-		
-		return new TileSchedule(tile,startDate);
-	}
-	
-	private Tile createTile(Label tileLabel, Position position) {
-
-		return new Tile(tileLabel,position);
-	}
-	
-	private Position createPosition(int xCoordinate, int yCoordinate) {
-
-		return new Position(xCoordinate,yCoordinate);
-	}
-
-	private Label createLabel(String tileLabel2) {
-
-		return new Label(tileLabel2);
-	}
 }
