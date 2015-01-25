@@ -8,6 +8,6 @@ public class TileTest {
 	@Test(expected=InvalidTileException.class)
 	public void GIVEN_BlankLabel_THEN_InvalidTileException() throws InvalidTileException {
 		
-		Tile tile = new Tile(new Label(""),new Position(2,3));
+		new Tile(new Label(""),new Position(2,3));
 	}
 }

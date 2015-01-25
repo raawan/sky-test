@@ -17,7 +17,7 @@ public class CmsApiTest {
 	private static final String TILE_LABEL_2 = "tileLabel21";
 	
 	@Test
-	public void GIVEN_inputTilePositionAndTimeCollidesWithSomeOtherExstingTileInSchedule_THEN_returnTrue() {
+	public void GIVEN_inputTilePositionAndTimeCollidesWithSomeOtherExstingTileInSchedule_THEN_returnTrue() throws InvalidTileException {
 
 		ClientSchedule clientSchedule = createScheduleTestData();
 		Date scheduledDateOfNewTile = createDateWithDefaultTimeZone(2015, 1, 20, 3, 30);
@@ -28,7 +28,7 @@ public class CmsApiTest {
 
 
 	@Test
-	public void GIVEN_inputTilePositionAndTimeDoNotCollidesWithSomeOtherExstingTilesInSchedule_THEN_returnFalse() {
+	public void GIVEN_inputTilePositionAndTimeDoNotCollidesWithSomeOtherExstingTilesInSchedule_THEN_returnFalse() throws InvalidTileException {
 
 		ClientSchedule clientSchedule = createScheduleTestData();
 		Date scheduledDateOfNewTile = createDateWithDefaultTimeZone(2015, 1, 20, 5, 33);
@@ -39,7 +39,7 @@ public class CmsApiTest {
 	}
 
 	@Test
-	public void GIVEN_inputTilePositionAndTimeDoNotCollidesWithSomeOtherExstingTilesInSchedule_THEN_returnFalse_2() {
+	public void GIVEN_inputTilePositionAndTimeDoNotCollidesWithSomeOtherExstingTilesInSchedule_THEN_returnFalse_2() throws InvalidTileException {
 
 		ClientSchedule clientSchedule = createScheduleTestData();
 		Date scheduledDateOfNewTile = createDateWithDefaultTimeZone(2015, 1, 20, 3, 30);
@@ -50,7 +50,7 @@ public class CmsApiTest {
 	}
 	
 	@Test
-	public void GIVEN_aTileExistInClientScheduleBeforeTheGivenNewTileSchedule_THEN_returnTrue() {
+	public void GIVEN_aTileExistInClientScheduleBeforeTheGivenNewTileSchedule_THEN_returnTrue() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = createScheduleTestData();
 		
@@ -63,7 +63,7 @@ public class CmsApiTest {
 	
 
 	@Test
-	public void GIVEN_aTileExistInClientScheduleBeforeTheGivenNewTileSchedule_THEN_returnFalse() {
+	public void GIVEN_aTileExistInClientScheduleBeforeTheGivenNewTileSchedule_THEN_returnFalse() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = createScheduleTestData();
 		
@@ -79,7 +79,7 @@ public class CmsApiTest {
 	}
 	
 	@Test
-	public void GIVEN_noTileExistInClientScheduleAfterTheGivenTileSchedule_THEN_returnTrue() {
+	public void GIVEN_noTileExistInClientScheduleAfterTheGivenTileSchedule_THEN_returnTrue() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = createScheduleTestData();
 		Date scheduledDateOfNewTile = createDateWithDefaultTimeZone(2015, 1, 20, 3, 31);
@@ -90,7 +90,7 @@ public class CmsApiTest {
 	}
 	
 	@Test
-	public void GIVEN_noTileExistInClientScheduleAfterTheGivenTileSchedule_THEN_returnFalse() {
+	public void GIVEN_noTileExistInClientScheduleAfterTheGivenTileSchedule_THEN_returnFalse() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = createScheduleTestData();
 		Date scheduledDateOfNewTile = createDateWithDefaultTimeZone(2015, 1, 20, 3, 29);
@@ -100,7 +100,7 @@ public class CmsApiTest {
 		assertFalse(new CmsApi().checkNoTileExistAfterGivenNewTileSchedule(tileSchedule2,clientSchedule));
 	}
 	
-	private ClientSchedule createScheduleTestData() {
+	private ClientSchedule createScheduleTestData() throws InvalidTileException {
 
 		ClientSchedule schedule = new ClientSchedule();
 		Tile tile = createTile(createLabel(TILE_LABEL_1),createPosition(2,3));

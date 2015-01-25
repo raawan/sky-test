@@ -34,7 +34,7 @@ public class Util {
 		return new TileSchedule(tile,startDate);
 	}
 	
-	public static  Tile createTile(Label tileLabel, Position position) {
+	public static  Tile createTile(Label tileLabel, Position position) throws InvalidTileException {
 
 		return new Tile(tileLabel,position);
 	}

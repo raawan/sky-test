@@ -10,7 +10,7 @@ import static com.sky.Util.*;
 public class ClientScheduleTest {
 	
 	@Test
-	public void GIVEN_aListOfClientSchedule_THEN_ClientScheduleShouldBeAddedInChronologicalOrder() {
+	public void GIVEN_aListOfClientSchedule_THEN_ClientScheduleShouldBeAddedInChronologicalOrder() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = new ClientSchedule();
 		
@@ -30,7 +30,7 @@ public class ClientScheduleTest {
 	}
 	
 	@Test
-	public void GIVEN_aListOfClientSchedule_THEN_ClientScheduleShouldBeAddedInChronologicalOrder_2() {
+	public void GIVEN_aListOfClientSchedule_THEN_ClientScheduleShouldBeAddedInChronologicalOrder_2() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = new ClientSchedule();
 		
@@ -62,7 +62,7 @@ public class ClientScheduleTest {
 	}
 	
 	@Test
-	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_1() {
+	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_1() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = new ClientSchedule();
 		
@@ -81,7 +81,7 @@ public class ClientScheduleTest {
 	}
 	
 	@Test
-	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_2() {
+	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_2() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = new ClientSchedule();
 		
@@ -100,7 +100,7 @@ public class ClientScheduleTest {
 	}
 	
 	@Test
-	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_3() {
+	public void GIVEN_aListOfClientScheduleOnSameDateWithDifferentPosition_THEN_ClientScheduleShouldBeAddedInOrderOfTheirPositions_3() throws InvalidTileException {
 		
 		ClientSchedule clientSchedule = new ClientSchedule();
 		

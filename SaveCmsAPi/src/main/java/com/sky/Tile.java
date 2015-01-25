@@ -6,10 +6,18 @@ public class Tile  {
 	private Label label;
 	private Position position;
 	
-	public Tile(Label label, Position position) {
+	public Tile(Label label, Position position) throws InvalidTileException {
 		
+		validateLabel(label);
 		this.label = label;
 		this.position = position;
+	}
+
+	private void validateLabel(Label label) throws InvalidTileException {
+		
+		if(label.getLabel().isEmpty()) {
+			throw new InvalidTileException();
+		}
 	}
 
 	public Position getPosition() {
