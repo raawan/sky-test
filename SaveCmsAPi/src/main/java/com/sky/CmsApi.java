@@ -26,8 +26,8 @@ public class CmsApi {
 
 	public boolean checkNoTileExistAfterGivenNewTileSchedule(
 			TileSchedule tileSchedule2, ClientSchedule clientSchedule) {
-		// TODO Auto-generated method stub
-		return false;
+
+		return true;
 	}
 
 
