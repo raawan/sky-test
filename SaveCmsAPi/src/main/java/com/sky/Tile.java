@@ -15,17 +15,30 @@ public class Tile  {
 
 	private void validateLabel(Label label) throws InvalidTileException {
 		
-		if(label.getLabel().isEmpty() || label.getLabel().length()>30) {
+		if(isLabelEmpty(label) || 
+				isLengthOfLabelGreaterThan30(label) || 
+					isLabelContainOnlyAlphaNumericCharsAndSpaces(label)) {
 			throw new InvalidTileException();
 		}
+	}
+
+	private boolean isLabelContainOnlyAlphaNumericCharsAndSpaces(Label label) {
 		
 		String pattern= "^[a-zA-Z0-9\\s]*$";
-        if(!label.getLabel().matches(pattern)){
-        	throw new InvalidTileException();
-        }
+		return !label.getLabel().matches(pattern);
+	}
+
+	private boolean isLengthOfLabelGreaterThan30(Label label) {
+		
+		return label.getLabel().length()>30;
+	}
+
+	private boolean isLabelEmpty(Label label) {
+		return label.getLabel().isEmpty();
 	}
 
 	public Position getPosition() {
+		
 		return position;
 	}
 	public void setPosition(Position position) {
