@@ -16,4 +16,11 @@ public class TileTest {
 		
 		new Tile(new Label("1234567890123456789012345678901"),new Position(2,3));
 	}
+	
+	@Test(expected=InvalidTileException.class)
+	public void GIVEN_LabelContainCharactersOtherThanAlphaNumericOrSpace_THEN_InvalidTileException() throws InvalidTileException {
+		
+		new Tile(new Label("labelWithInvalidchar**"),new Position(2,3));
+	}
+	
 }
