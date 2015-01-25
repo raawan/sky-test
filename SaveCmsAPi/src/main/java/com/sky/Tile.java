@@ -17,12 +17,12 @@ public class Tile  {
 		
 		if(isLabelEmpty(label) || 
 				isLengthOfLabelGreaterThan30(label) || 
-					isLabelContainOnlyAlphaNumericCharsAndSpaces(label)) {
+					isLabelDoNotContainOnlyAlphaNumericCharsAndSpaces(label)) {
 			throw new InvalidTileException();
 		}
 	}
 
-	private boolean isLabelContainOnlyAlphaNumericCharsAndSpaces(Label label) {
+	private boolean isLabelDoNotContainOnlyAlphaNumericCharsAndSpaces(Label label) {
 		
 		String pattern= "^[a-zA-Z0-9\\s]*$";
 		return !label.getLabel().matches(pattern);
