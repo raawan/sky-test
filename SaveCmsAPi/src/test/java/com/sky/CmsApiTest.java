@@ -89,6 +89,17 @@ public class CmsApiTest {
 		assertTrue(new CmsApi().checkNoTileExistAfterGivenNewTileSchedule(tileSchedule2,clientSchedule));
 	}
 	
+	@Test
+	public void GIVEN_noTileExistInClientScheduleAfterTheGivenTileSchedule_THEN_returnFalse() {
+		
+		ClientSchedule clientSchedule = createScheduleTestData();
+		Date scheduledDateOfNewTile = createDateWithDefaultTimeZone(2015, 1, 20, 3, 29);
+		Tile tileToAdd = createTile(createLabel(TILE_LABEL_2),createPosition(2,4));
+		TileSchedule tileSchedule2 = createTileSchedule(tileToAdd,scheduledDateOfNewTile);
+		
+		assertFalse(new CmsApi().checkNoTileExistAfterGivenNewTileSchedule(tileSchedule2,clientSchedule));
+	}
+	
 	private ClientSchedule createScheduleTestData() {
 
 		ClientSchedule schedule = new ClientSchedule();

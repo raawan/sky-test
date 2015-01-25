@@ -19,15 +19,21 @@ public class CmsApi {
 		if (clientTileSchedules.size()==0) return false;
 		else {
 			clientTileSchedules.add(tileSchedule2);
-			if(clientTileSchedules.headSet(tileSchedule2).size()>0) return true;
+			if(clientTileSchedules.headSet(tileSchedule2,false).size()>0) return true;
 			return false;
 		}
 	}
-
+	
 	public boolean checkNoTileExistAfterGivenNewTileSchedule(
 			TileSchedule tileSchedule2, ClientSchedule clientSchedule) {
 
-		return true;
+		TreeSet<TileSchedule> clientTileSchedules = clientSchedule.getClientTileSchedules();
+		if (clientTileSchedules.size()==0) return true;
+		else {
+			clientTileSchedules.add(tileSchedule2);
+			if(clientTileSchedules.tailSet(tileSchedule2,false).size()==0) return true;
+			return false;
+		}
 	}
 
 
