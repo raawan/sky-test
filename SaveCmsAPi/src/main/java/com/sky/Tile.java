@@ -18,6 +18,11 @@ public class Tile  {
 		if(label.getLabel().isEmpty() || label.getLabel().length()>30) {
 			throw new InvalidTileException();
 		}
+		
+		String pattern= "^[a-zA-Z0-9 ]*$";
+        if(!label.getLabel().matches(pattern)){
+        	throw new InvalidTileException();
+        }
 	}
 
 	public Position getPosition() {
