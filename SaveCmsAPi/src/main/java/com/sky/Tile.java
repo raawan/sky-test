@@ -19,7 +19,7 @@ public class Tile  {
 			throw new InvalidTileException();
 		}
 		
-		String pattern= "^[a-zA-Z0-9 ]*$";
+		String pattern= "^[a-zA-Z0-9\\s]*$";
         if(!label.getLabel().matches(pattern)){
         	throw new InvalidTileException();
         }

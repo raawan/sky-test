@@ -23,4 +23,9 @@ public class TileTest {
 		new Tile(new Label("labelWithInvalidchar**"),new Position(2,3));
 	}
 	
+	@Test
+	public void GIVEN_LabelContainSpaceAndNoCharsOtherThanAlphaNumeric_THEN_NoInvalidTileException() throws InvalidTileException {
+		
+		new Tile(new Label("labelWith Spacechar"),new Position(2,3));
+	}
 }
