@@ -15,7 +15,7 @@ public class Tile  {
 
 	private void validateLabel(Label label) throws InvalidTileException {
 		
-		if(label.getLabel().isEmpty()) {
+		if(label.getLabel().isEmpty() || label.getLabel().length()>30) {
 			throw new InvalidTileException();
 		}
 	}
